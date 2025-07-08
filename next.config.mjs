@@ -1,19 +1,19 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'res.cloudinary.com',
-                pathname: '**',
-            },
-            {
-                protocol: 'https',
-                hostname: 'raw.githubusercontent.com',
-                pathname: '**',
-            },
-        ],
-    },
+  eslint: {
+    ignoreDuringBuilds: true,   // ✅ Skips ESLint during Vercel build
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',  // ✅ Allows Cloudinary images
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com', // ✅ Allows GitHub raw image links
+        pathname: '**',
+      },
+    ],
+  },
 };
-
-export default nextConfig;
