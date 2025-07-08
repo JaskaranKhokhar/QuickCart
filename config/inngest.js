@@ -3,10 +3,9 @@ import connectDB from "./db";
 import User from "@/models/User";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "quickcart - next " });
+export const inngest = new Inngest({ id: "quickcart - next" });
 
 // Ingest Function to save user data to database 
-// clerk/user.created event
 export const syncUserCreation = inngest.createFunction(
   { id: 'sync-user-from-clerk' },
   { event: 'clerk/user.created' },
@@ -25,8 +24,8 @@ export const syncUserCreation = inngest.createFunction(
   }
 );
 
-// clerk/user.updated event
-export const syncUserUpdation = inngest.createFunction(
+// Ingest function to update user data in database
+export const syncUserupdation = inngest.createFunction(
   { id: 'update-user-from-clerk' },
   { event: 'clerk/user.updated' },
   async ({ event }) => {
@@ -44,7 +43,7 @@ export const syncUserUpdation = inngest.createFunction(
   }
 );
 
-// clerk/user.deleted event
+// Ingest function to delete user data from database 
 export const syncUserDeletion = inngest.createFunction(
   { id: 'delete-user-with-clerk' },
   { event: 'clerk/user.deleted' },
