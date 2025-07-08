@@ -24,9 +24,14 @@ const Product = () => {
         setProductData(product);
     }
 
+    
+
     useEffect(() => {
-        fetchProductData();
-    }, [id, products.length])
+  const product = products.find(product => product._id === id);
+  setProductData(product);
+}, [id, products]);
+
+
 
     return productData ? (<>
         <Navbar />
